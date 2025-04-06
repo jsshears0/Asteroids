@@ -17,12 +17,11 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    #setting screen color
     screen.fill((0, 0, 0))
-
-    #setting framerate to 60fps
+        #setting screen color.
     dt = fps.tick(60) / 1000
-    
+        #setting framerate to 60fps
+        #print(f"DT: {dt}") #checking frame rate
     pygame.display.flip()
 
 pygame.quit()
