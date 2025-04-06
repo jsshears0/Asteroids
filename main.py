@@ -9,13 +9,22 @@ def main():
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 running = True
+fps = pygame.time.Clock()
+dt = 0
 
 while running:
-    screen.fill((0, 0, 0))
-    pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    #setting screen color
+    screen.fill((0, 0, 0))
+
+    #setting framerate to 60fps
+    dt = fps.tick(60) / 1000
+    
+    pygame.display.flip()
+
 pygame.quit()
 
 if __name__ == "__main__":
