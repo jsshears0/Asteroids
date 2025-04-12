@@ -23,6 +23,7 @@ def main():
             #setting screen color.
         player.draw(screen)
             #creating player sprite
+        player.update(dt)
         dt = fps.tick(60) / 1000
             #setting framerate to 60fps
             #print(f"DT: {dt}") #checking frame rate
