@@ -1,6 +1,8 @@
 import pygame
 from constants import *
 from player import *
+from asteroid import *
+from asteroidfield import *
 
 def main():
     print("Starting Asteroids!") 
@@ -15,12 +17,16 @@ def main():
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
         #creating containers
 
     Player.containers = (updatable, drawable)
-        #assigning groups
+
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-        # creating player
+
+    Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = (updatable,)
+    asteroid_field = AsteroidField()
 
     while running:
         for event in pygame.event.get():
@@ -33,6 +39,8 @@ def main():
             #setting screen color.
         for sprite in drawable:
             if isinstance(sprite, Player):
+                sprite.draw(screen)
+            elif isinstance(sprite, Asteroid):
                 sprite.draw(screen)
             else:
                 screen.blit(sprite.image, sprite.rect)
