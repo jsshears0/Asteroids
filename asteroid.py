@@ -11,7 +11,7 @@ class Asteroid(CircleShape):
     
     def draw(self, screen):
         #overiding circleshape
-        pygame.draw.circle(screen, "white", (int(self.position.x), int(self.position.y)), self.radius, 2)
+        pygame.draw.circle(screen, "red", (int(self.position.x), int(self.position.y)), self.radius, 2)
 
     def update(self, dt):
         #overiding circleshape

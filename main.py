@@ -46,6 +46,11 @@ def main():
                 screen.blit(sprite.image, sprite.rect)
             #creating player sprite.
         
+        for asteroid in asteroids:
+            if asteroid.collision(player):
+                print("Game Over!")
+                return SystemExit
+            
         dt = fps.tick(60) / 1000
             #setting framerate to 60fps.
             #print(f"DT: {dt}") #checking frame rate.
